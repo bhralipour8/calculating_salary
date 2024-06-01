@@ -1,0 +1,51 @@
+#include<iostream> 
+using namespace std;
+class employee {
+public:
+	char name[10];
+
+private:
+	float history;
+	float workingHour;
+
+public:
+	void SetWorkingHour(float w)
+	{
+		workingHour = w;
+	}
+	void GetHistory(float h)
+	{
+		history = h;
+	}
+	float CalSalary()
+	{
+		if (history > 0 && history < 10)
+		{
+			return workingHour * 10;
+		}
+		if (history > 10 && history < 20)
+		{
+			return workingHour * 15;
+		}
+			if (history > 20 && history < 30)
+		{
+			return workingHour * 20;
+	    }
+		return 0;
+	}
+};
+int main()
+{
+	employee *E1 = new employee;
+	char name[10];
+	cout << "enter name : ";
+	cin >> E1->name;
+	float w, h;
+	cout << "enter hours and history: ";
+	cin >> w >> h;
+	E1->GetHistory(h);
+	E1->SetWorkingHour(w);
+	cout << "salary is " <<E1->CalSalary() <<" !";
+	delete E1;
+	return 0;
+}
